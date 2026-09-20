@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="催眠性指导专注于提供科学、安全、专业的深度放松与潜意识引导资源。包含引导式冥想、焦虑缓解指南、睡眠质量提升方案以及潜意识潜能开发方法。">
+    <meta name="keywords" content="催眠性指导,引导式冥想,深度放松,潜意识开发,睡眠改善,焦虑缓解,自我催眠">
+    <title>催眠性指导-科学深度放松与潜意识潜能开发指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #4A6FA5;
+            --primary-dark: #3E5A80;
+            --accent-color: #8AB4F8;
+            --bg-color: #F5F7FA;
+            --card-bg: #FFFFFF;
+            --text-main: #2C3E50;
+            --text-secondary: #546E7A;
+            --text-light: #90A4AE;
+            --spacing-unit: 1rem;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .section-title p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .cta-button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 111, 165, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #E3F2FD 0%, #FFFFFF 100%);
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .hero h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .tag {
+            background: rgba(74, 111, 165, 0.1);
+            color: var(--primary-color);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(138, 180, 248, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Guide Section */
+        .guide-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
+
+        .guide-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .guide-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .step-list {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+
+        .step-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .step-item::before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 36px;
+            height: 36px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .step-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-item p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .sidebar-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 90px;
+        }
+
+        .sidebar-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .checklist li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .checklist li::before {
+            content: "✓";
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        /* Audio Cards */
+        .audio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .audio-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .audio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .audio-placeholder {
+            height: 160px;
+            background: linear-gradient(45deg, #E3F2FD, #BBDEFB);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .play-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .play-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .play-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--primary-color);
+            margin-left: 3px; /* Visual fix for play triangle */
+        }
+
+        .audio-info {
+            padding: 1.5rem;
+        }
+
+        .audio-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .audio-info p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        details {
+            background: var(--card-bg);
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            overflow: hidden;
+        }
+
+        summary {
+            padding: 1.2rem;
+            cursor: pointer;
+            font-weight: 600;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            transition: transform 0.2s;
+        }
+
+        details[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        details[open] summary {
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .faq-content {
+            padding: 1.2rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #fff;
+            padding: 4rem 0 2rem;
+            border-top: 1px solid #eee;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #f0f0f0;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .guide-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar-card {
+                position: static;
+                order: -1; /* Move to top on mobile */
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2a10 10 0 1 0 10 10H12V2z"></path>
+                    <path d="M12 2a10 10 0 0 1 10 10"></path>
+                    <path d="M12 2a10 10 0 0 0-10 10"></path>
+                </svg>
+                <span>催眠性指导</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#guide">引导指南</a></li>
+                    <li><a href="#resources">音频资源</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                    <li><a href="#" class="cta-button">开始体验</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-tags">
+                    <span class="tag">深度放松</span>
+                    <span class="tag">潜意识开发</span>
+                    <span class="tag">焦虑缓解</span>
+                    <span class="tag">睡眠改善</span>
+                </div>
+                <h1>探索<br><span>催眠性指导</span>的<br>内在力量</h1>
+                <p>通过科学、安全且专业的引导式指令，帮助您进入深度放松状态，缓解压力，改善睡眠质量，并激发潜意识潜能。</p>
+                <a href="#guide" class="cta-button">阅读引导指南</a>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="section">
+            <div class="container">
+                <div class="features-grid">
+                    <article class="feature-card">
+                        <div class="icon-box">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                        </div>
+                        <h3>科学安全</h3>
+                        <p>所有指导方案均基于心理学原理设计，强调安全、自愿和舒适，确保用户在可控的环境下体验深度放松。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="icon-box">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                        </div>
+                        <h3>缓解压力</h3>
+                        <p>通过特定的呼吸节奏和意象引导，快速降低皮质醇水平，有效缓解现代生活带来的焦虑与精神紧张。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="icon-box">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                            </svg>
+                        </div>
+                        <h3>改善睡眠</h3>
+                        <p>专为失眠人群设计的睡前引导，帮助平复思绪，建立良好的睡眠仪式，提升深度睡眠的时长与质量。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide Section -->
+        <section id="guide" class="section" style="background-color: #fff;">
+            <div class="container">
+                <div class="guide-layout">
+                    <div class="guide-content">
+                        <h2>如何进行自我催眠性指导</h2>
+                        <p>催眠性指导并非神秘的仪式，而是一种通过语言引导达到的高度专注与放松状态。它利用了大脑的“默认模式网络”在放松时的活跃特性，帮助个体屏蔽外界干扰，聚焦内在感受。</p>
+                        
+                        <h3>核心步骤</h3>
+                        <ul class="step-list">
+                            <li class="step-item">
+                                <h4>准备环境</h4>
+                                <p>找一个安静、不受打扰的地方，确保温度适宜。可以佩戴耳机以获得最佳的声音沉浸感。选择一个舒适的坐姿或躺姿，保持脊柱自然挺直。</p>
+                            </li>
+                            <li class="step-item">
+                                <h4>身体扫描</h4>
+                                <p>闭上双眼，专注于呼吸。从脚趾开始，依次感受身体各部位的感觉，想象紧张感随着每一次呼气而排出体外，让身体逐渐下沉、变重。</p>
+                            </li>
+                            <li class="step-item">
+                                <h4>听觉引导</h4>
+                                <p>聆听引导性语言（如本站提供的音频）。引导语通常会使用重复的、舒缓的语调，配合具体的意象（如漂浮在云端、置身于森林），帮助你构建心理画面。</p>
+                            </li>
+                            <li class="step-item">
+                                <h4>积极暗示</h4>
+                                <p>在深度放松状态下，潜意识更容易接受建议。此时可以植入积极的自我肯定语，例如“我感到平静”、“我拥有充沛的精力”等，以重塑认知模式。</p>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <aside>
+                        <div class="sidebar-card">
+                            <h3>注意事项</h3>
+                            <ul class="checklist">
+                                <li>请勿在驾驶或操作机械时进行。</li>
+                                <li>初次尝试请选择短时长的引导。</li>
+                                <li>如果感到不适，请立即停止并睁开眼睛。</li>
+                                <li>避免在极度疲劳或醉酒状态下尝试。</li>
+                                <li>保持开放但怀疑的心态，相信身体的直觉。</li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section id="resources" class="section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>精选引导资源</h2>
+                    <p>以下音频由专业声优录制，旨在提供高质量的听觉引导体验。</p>
+                </div>
+                
+                <div class="audio-grid">
+                    <!-- Audio Card 1 -->
+                    <div class="audio-card">
+                        <div class="audio-placeholder">
+                            <div class="play-icon">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
+                        <div class="audio-info">
+                            <h4>深度睡眠诱导</h4>
+                            <p>时长：20分钟 | 适合：失眠人群</p>
+                        </div>
+                    </div>
+
+                    <!-- Audio Card 2 -->
+                    <div class="audio-card">
+                        <div class="audio-placeholder">
+                            <div class="play-icon">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
+                        <div class="audio-info">
+                            <h4>晨间活力唤醒</h4>
+                            <p>时长：15分钟 | 适合：起床困难</p>
+                        </div>
+                    </div>
+
+                    <!-- Audio Card 3 -->
+                    <div class="audio-card">
+                        <div class="audio-placeholder">
+                            <div class="play-icon">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
+                        <div class="audio-info">
+                            <h4>职场焦虑释放</h4>
+                            <p>时长：12分钟 | 适合：高压工作者</p>
+                        </div>
+                    </div>
+
+                    <!-- Audio Card 4 -->
+                    <div class="audio-card">
+                        <div class="audio-placeholder">
+                            <div class="play-icon">
+                                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            </div>
+                        </div>
+                        <div class="audio-info">
+                            <h4>身体放松扫描</h4>
+                            <p>时长：18分钟 | 适合：肩颈酸痛</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section" style="background-color: #fff;">
+            <div class="container">
+                <div class="section-title">
+                    <h2>常见问题解答</h2>
+                    <p>关于催眠性指导的常见疑问与解答。</p>
+                </div>
+                <div class="faq-container">
+                    <details>
+                        <summary>我可以在公共场合进行催眠性指导吗？</summary>
+                        <div class="faq-content">
+                            不建议。催眠性指导需要高度的专注和屏蔽外界干扰。在公共场合可能会因为环境噪音或他人的打扰而无法进入深度状态，甚至导致尴尬。
+                        </div>
+                    </details>
+                    <details>
+                        <summary>催眠性指导能让我忘记不想记忆的事情吗？</summary>
+                        <div class="faq-content">
+                            催眠性指导并不能让人遗忘真实的记忆，而是帮助个体从新的角度去看待那些记忆，从而减轻记忆带来的负面情绪影响。它不是记忆消除工具。
+                        </div>
+                    </details>
+                    <details>
+                        <summary>我总是“走神”，这正常吗？</summary>
+                        <div class="faq-content">
+                            非常正常。即使是在专业治疗师的引导下，大多数人的大脑也会偶尔游离。这并不代表催眠失败，您可以温和地将注意力重新拉回到引导语上即可。
+                        </div>
+                    </details>
+                    <details>
+                        <summary>男性可以进行催眠性指导吗？</summary>
+                        <div class="faq-content">
+                            当然可以。催眠性指导的对象没有性别限制。无论是男性还是女性，都可以通过引导语获得放松和积极的心理暗示。
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="margin-bottom: 1rem;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2a10 10 0 1 0 10 10H12V2z"></path>
+                        </svg>
+                        <span>催眠性指导</span>
+                    </a>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                        致力于提供科学、健康的心理引导资源，帮助每个人找到内心的平静与力量。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#guide">引导指南</a></li>
+                        <li><a href="#resources">音频资源</a></li>
+                        <li><a href="#faq">常见问题</a></li>
+                        <li><a href="#">关于我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>相关主题</h4>
+                    <ul>
+                        <li><a href="#">正念冥想</a></li>
+                        <li><a href="#">呼吸练习</a></li>
+                        <li><a href="#">压力管理</a></li>
+                        <li><a href="#">睡眠健康</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li><a href="#">邮箱支持</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">服务条款</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 催眠性指导平台. 保留所有权利. 本网站内容仅供教育参考，不构成医疗建议。
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
