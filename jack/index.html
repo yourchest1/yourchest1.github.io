@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jackerman系列作品在线浏览与收藏指南，提供高清画质、高清无码及最新更新动态，涵盖主要系列作品介绍与观看方式。">
+    <meta name="keywords" content="jackerman系列, Jackerman, 动漫, 在线观看, 高清">
+    <title>jackerman系列-高清作品浏览与观看指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-color: #0f0f11;
+            --card-bg: #1a1a1d;
+            --text-main: #e0e0e0;
+            --text-sub: #a0a0a0;
+            --accent: #6c5ce7;
+            --accent-hover: #5649c0;
+            --border-radius: 12px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: rgba(15, 15, 17, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-sub);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://picsum.photos/seed/jackermanhero/1920/1080.jpg') center/cover no-repeat;
+            margin-bottom: 40px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        /* 分类标签 */
+        .tags-section {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .tag {
+            background-color: var(--card-bg);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            border: 1px solid #333;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .tag:hover, .tag.active {
+            background-color: var(--accent);
+            color: white;
+            border-color: var(--accent);
+        }
+
+        /* 网格布局 */
+        .grid-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #2a2a2e;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            border-color: #444;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            background-color: #222;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            margin-bottom: 15px;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: #888;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #333;
+            padding-top: 15px;
+        }
+
+        .rating {
+            color: #f1c40f;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .view-btn {
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .view-btn:hover {
+            text-decoration: underline;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #151518;
+            padding: 60px 0 30px;
+            border-top: 1px solid #2a2a2e;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--text-main);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent);
+        }
+
+        .copyright {
+            text-align: center;
+            color: #555;
+            font-size: 0.85rem;
+            padding-top: 30px;
+            border-top: 1px solid #222;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .header-inner {
+                height: 60px;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--card-bg);
+                padding: 20px;
+                border-bottom: 1px solid #333;
+            }
+
+            nav.open {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .card-image {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航栏 -->
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">Jackerman<span>系列</span></a>
+            <button class="mobile-menu-btn" aria-label="菜单">☰</button>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">作品列表</a></li>
+                    <li><a href="#">高清专区</a></li>
+                    <li><a href="#">更新日志</a></li>
+                    <li><a href="#">收藏夹</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 首屏 Hero 区域 -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>探索 Jackerman 系列的视觉艺术</h1>
+            <p>汇集系列中所有高质量、高细节的精选作品，为您提供沉浸式的在线浏览体验。</p>
+            <a href="#gallery" class="cta-button">开始浏览</a>
+        </div>
+    </section>
+
+    <main class="container">
+        
+        <!-- 筛选标签 -->
+        <section class="tags-section">
+            <button class="tag active">全部</button>
+            <button class="tag">高清无码</button>
+            <button class="tag">4K画质</button>
+            <button class="tag">最新更新</button>
+            <button class="tag">经典系列</button>
+            <button class="tag">独家收录</button>
+        </section>
+
+        <!-- 作品展示网格 -->
+        <section id="gallery" class="grid-section">
+            
+            <!-- 卡片 1 -->
+            <article class="card">
+                <img src="https://picsum.photos/seed/j1/400/600" alt="Jackerman系列作品封面" class="card-image" loading="lazy">
+                <div class="card-body">
+                    <h2 class="card-title">系列作品 - 第一章：起源</h2>
+                    <div class="card-meta">
+                        <span>2023-10-15</span>
+                        <span class="rating">★★★★★ 9.8</span>
+                    </div>
+                    <p class="card-desc">深入探讨该系列作品的初始设定与核心世界观，展现细腻的人物刻画与丰富的情感互动。</p>
+                    <div class="card-footer">
+                        <span class="view-btn">查看详情 &rarr;</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 卡片 2 -->
+            <article class="card">
+                <img src="https://picsum.photos/seed/j2/400/600" alt="Jackerman系列作品封面" class="card-image" loading="lazy">
+                <div class="card-body">
+                    <h2 class="card-title">系列作品 - 第二章：进化</h2>
+                    <div class="card-meta">
+                        <span>2023-10-18</span>
+                        <span class="rating">★★★★★ 9.6</span>
+                    </div>
+                    <p class="card-desc">随着剧情的推进，角色关系发生微妙变化，画面表现力进一步增强，细节处理更加精致。</p>
+                    <div class="card-footer">
+                        <span class="view-btn">查看详情 &rarr;</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 卡片 3 -->
+            <article class="card">
+                <img src="https://picsum.photos/seed/j3/400/600" alt="Jackerman系列作品封面" class="card-image" loading="lazy">
+                <div class="card-body">
+                    <h2 class="card-title">系列作品 - 第三章：巅峰</h2>
+                    <div class="card-meta">
+                        <span>2023-10-22</span>
+                        <span class="rating">★★★★★ 9.9</span>
+                    </div>
+                    <p class="card-desc">本集作为系列的高潮部分，视觉效果达到顶峰，叙事结构紧凑，引人入胜。</p>
+                    <div class="card-footer">
+                        <span class="view-btn">查看详情 &rarr;</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 卡片 4 -->
+            <article class="card">
+                <img src="https://picsum.photos/seed/j4/400/600" alt="Jackerman系列作品封面" class="card-image" loading="lazy">
+                <div class="card-body">
+                    <h2 class="card-title">系列作品 - 第四章：未来</h2>
+                    <div class="card-meta">
+                        <span>2023-10-25</span>
+                        <span class="rating">★★★★☆ 9.2</span>
+                    </div>
+                    <p class="card-desc">展望未来的可能性，为整个系列留下悬念，画面风格独特，充满想象力。</p>
+                    <div class="card-footer">
+                        <span class="view-btn">查看详情 &rarr;</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 卡片 5 -->
+            <article class="card">
+                <img src="https://picsum.photos/seed/j5/400/600" alt="Jackerman系列作品封面" class="card-image" loading="lazy">
+                <div class="card-body">
+                    <h2 class="card-title">系列作品 - 特别篇</h2>
+                    <div class="card-meta">
+                        <span>2023-11-01</span>
+                        <span class="rating">★★★★★ 9.7</span>
+                    </div>
+                    <p class="card-desc">额外赠送的精彩内容，深入挖掘角色背景故事，适合老粉丝重温。</p>
+                    <div class="card-footer">
+                        <span class="view-btn">查看详情 &rarr;</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 卡片 6 -->
+            <article class="card">
+                <img src="https://picsum.photos/seed/j6/400/600" alt="Jackerman系列作品封面" class="card-image" loading="lazy">
+                <div class="card-body">
+                    <h2 class="card-title">系列作品 - 番外篇</h2>
+                    <div class="card-meta">
+                        <span>2023-11-05</span>
+                        <span class="rating">★★★★☆ 9.0</span>
+                    </div>
+                    <p class="card-desc">轻松幽默的番外内容，展示角色日常，画风轻松，适合放松心情时观看。</p>
+                    <div class="card-footer">
+                        <span class="view-btn">查看详情 &rarr;</span>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- 说明区域 -->
+        <section style="background-color: var(--card-bg); padding: 40px; border-radius: var(--border-radius); margin-bottom: 60px;">
+            <h2 style="font-size: 1.5rem; margin-bottom: 20px;">关于 Jackerman 系列</h2>
+            <p style="color: var(--text-sub); margin-bottom: 15px;">
+                Jackerman 系列以其独特的艺术风格和精湛的制作工艺在同类作品中脱颖而出。每一部作品都经过精心打磨，旨在为观众带来最优质的视觉享受。
+            </p>
+            <p style="color: var(--text-sub);">
+                本站致力于提供最新的更新资讯与高清资源索引，所有内容仅供个人学习交流使用，请支持正版。
+            </p>
+        </section>
+
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">网站简介</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">联系方式</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">最新更新</a></li>
+                        <li><a href="#">热门排行</a></li>
+                        <li><a href="#">高清专区</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">观看指南</a></li>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">意见反馈</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Jackerman系列收藏站. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的移动端菜单切换逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const nav = document.querySelector('nav');
+
+            menuBtn.addEventListener('click', function() {
+                nav.classList.toggle('open');
+            });
+
+            // 标签切换交互效果
+            const tags = document.querySelectorAll('.tag');
+            tags.forEach(tag => {
+                tag.addEventListener('click', function() {
+                    tags.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
