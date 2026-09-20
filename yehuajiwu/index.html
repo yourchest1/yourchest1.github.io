@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>野画集无删减 - 原创插画艺术与视觉盛宴</title>
+    <meta name="description" content="野画集无删减，专注于分享高品质原创插画、概念艺术与视觉设计作品。提供高清无删减图片资源，涵盖二次元、科幻、古风等多元风格，打造艺术爱好者的灵感聚集地。">
+    <meta name="keywords" content="野画集无删减,插画,原创艺术,高清图片,视觉设计,概念图">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-radius: 8px;
+            --spacing-unit: 16px;
+            --max-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #4ca1af 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.6);
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit) 60px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .section-title a {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: normal;
+        }
+
+        /* Grid System */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            background-color: #e0e0e0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0,0,0,0.7);
+            color: white;
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            backdrop-filter: blur(4px);
+        }
+
+        .card-content {
+            padding: 16px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 16px;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #999;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 12px;
+        }
+
+        .download-btn {
+            color: var(--primary-color);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .download-btn:hover {
+            color: var(--accent-color);
+        }
+
+        /* Features Section */
+        .features {
+            background-color: white;
+            padding: 60px 0;
+            margin-top: 40px;
+            border-top: 1px solid #eee;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .feature-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .feature-text {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            margin-top: 16px;
+            opacity: 0.7;
+            font-size: 0.9rem;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            opacity: 1;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-size: 0.85rem;
+            opacity: 0.5;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                height: 60px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">野<span>画集</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">最新收录</a></li>
+                    <li><a href="#">热门分类</a></li>
+                    <li><a href="#">精选专题</a></li>
+                    <li><a href="#">关于我们</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">☰</div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>探索视觉艺术的无限可能</h1>
+        <p>我们致力于收集、整理并分享全球范围内的高质量原创插画与概念艺术。在这里，您能找到经过精心筛选的“野画集无删减”高清资源，感受纯粹的艺术魅力。</p>
+        <a href="#gallery" class="cta-button">开始浏览</a>
+    </section>
+
+    <main class="container" id="gallery">
+        
+        <!-- Section: Featured -->
+        <section class="section-header">
+            <h2 class="section-title">精选收录 <a href="#">查看全部 &rarr;</a></h2>
+        </section>
+
+        <div class="gallery-grid">
+            <!-- Card 1 -->
+            <article class="card">
+                <div class="card-image">
+                    <span class="card-tag">概念设计</span>
+                    <img src="https://picsum.photos/seed/art1/400/300" alt="赛博朋克城市夜景插画">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">赛博朋克：霓虹边缘</h3>
+                    <p class="card-desc">一幅描绘未来都市夜晚的宏大场景，色彩丰富，细节考究，展现了科技与人文的碰撞。</p>
+                    <div class="card-meta">
+                        <span>2023-10-24</span>
+                        <a href="#" class="download-btn">查看详情 &rarr;</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="card">
+                <div class="card-image">
+                    <span class="card-tag">古风</span>
+                    <img src="https://picsum.photos/seed/art2/400/300" alt="古代宫廷仕女图">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">宫廷·听雨</h3>
+                    <p class="card-desc">细腻的笔触勾勒出古代仕女的温婉神态，背景融入了水墨元素，意境深远。</p>
+                    <div class="card-meta">
+                        <span>2023-10-22</span>
+                        <a href="#" class="download-btn">查看详情 &rarr;</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="card">
+                <div class="card-image">
+                    <span class="card-tag">科幻</span>
+                    <img src="https://picsum.photos/seed/art3/400/300" alt="外星生物与飞船">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">异星探索</h3>
+                    <p class="card-desc">充满想象力的外星生态系统插画，色彩大胆，结构独特，激发无限的探索欲望。</p>
+                    <div class="card-meta">
+                        <span>2023-10-20</span>
+                        <a href="#" class="download-btn">查看详情 &rarr;</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 4 -->
+            <article class="card">
+                <div class="card-image">
+                    <span class="card-tag">二次元</span>
+                    <img src="https://picsum.photos/seed/art4/400/300" alt="动漫角色立绘">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">魔法少女·觉醒</h3>
+                    <p class="card-desc">充满活力的动漫风格角色立绘，动态感十足，展现了角色的战斗姿态。</p>
+                    <div class="card-meta">
+                        <span>2023-10-18</span>
+                        <a href="#" class="download-btn">查看详情 &rarr;</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <!-- Section: Categories -->
+        <section style="margin-top: 60px;">
+            <h2 class="section-title">热门分类浏览</h2>
+            <div class="gallery-grid">
+                <div class="card" style="padding: 40px; text-align: center; border: 1px dashed #ccc;">
+                    <h3>幻想生物</h3>
+                    <p style="color: #666; margin-top: 10px; font-size: 0.9rem;">龙、精灵、兽人等奇幻生物设计</p>
+                </div>
+                <div class="card" style="padding: 40px; text-align: center; border: 1px dashed #ccc;">
+                    <h3>场景概念</h3>
+                    <p style="color: #666; margin-top: 10px; font-size: 0.9rem;">室内、室外、废土、未来城市</p>
+                </div>
+                <div class="card" style="padding: 40px; text-align: center; border: 1px dashed #ccc;">
+                    <h3>角色原画</h3>
+                    <p style="color: #666; margin-top: 10px; font-size: 0.9rem;">职业设定、服饰细节与动态姿势</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: FAQ -->
+        <section style="margin-top: 60px; background: #fff; padding: 30px; border-radius: 8px;">
+            <h2 class="section-title">常见问题</h2>
+            <div style="margin-top: 20px;">
+                <details style="margin-bottom: 15px; cursor: pointer;">
+                    <summary style="font-weight: 600; padding-bottom: 10px; border-bottom: 1px solid #eee;">什么是“野画集无删减”？</summary>
+                    <p style="padding-top: 10px; color: #666; font-size: 0.95rem;">“野画集无删减”指的是我们提供的插画资源保持了作品的原始完整性和高清分辨率，未经过任何低质压缩或内容阉割处理，旨在为用户提供最纯粹的艺术体验。</p>
+                </details>
+                <details style="margin-bottom: 15px; cursor: pointer;">
+                    <summary style="font-weight: 600; padding-bottom: 10px; border-bottom: 1px solid #eee;">如何获取这些高清图片？</summary>
+                    <p style="padding-top: 10px; color: #666; font-size: 0.95rem;">您可以通过点击卡片上的“查看详情”按钮，进入对应的资源页面。部分资源可能需要注册会员或参与互动才能下载，具体请参考各资源页面的说明。</p>
+                </details>
+                <details style="cursor: pointer;">
+                    <summary style="font-weight: 600; padding-bottom: 10px; border-bottom: 1px solid #eee;">这些图片可以用于商业用途吗？</summary>
+                    <p style="padding-top: 10px; color: #666; font-size: 0.95rem;">我们的资源大多为原创或授权作品。如果您计划将图片用于商业项目，请务必在下载前确认具体的授权协议或联系版权方，以免产生法律纠纷。</p>
+                </details>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Features Strip -->
+    <section class="features">
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-icon">🎨</div>
+                <h4 class="feature-title">高清画质</h4>
+                <p class="feature-text">支持4K分辨率预览与下载</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🚀</div>
+                <h4 class="feature-title">每日更新</h4>
+                <p class="feature-text">紧跟国际艺术潮流与趋势</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🔒</div>
+                <h4 class="feature-title">纯净环境</h4>
+                <p class="feature-text">无广告干扰，专注视觉享受</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">💎</div>
+                <h4 class="feature-title">独家内容</h4>
+                <p class="feature-text">收录大量艺术家投稿作品</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="#" class="logo" style="color: white;">野<span>画集</span></a>
+                <p>汇聚全球视觉灵感，为您提供最纯粹、最无删减的插画艺术资源库。我们相信，每一幅画都是通往另一个世界的窗口。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#">最新收录</a></li>
+                    <li><a href="#">热门榜单</a></li>
+                    <li><a href="#">艺术家入驻</a></li>
+                    <li><a href="#">投稿指南</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关于我们</h4>
+                <ul>
+                    <li><a href="#">网站简介</a></li>
+                    <li><a href="#">联系方式</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">免责声明</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 野画集. All Rights Reserved. 本站内容仅供学习与交流使用.
+        </div>
+    </footer>
+
+</body>
+</html>
