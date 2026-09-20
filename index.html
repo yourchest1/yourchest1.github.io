@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="你好伦敦 - 您的伦敦旅行综合指南，涵盖交通出行、景点攻略、住宿推荐及美食体验，助您轻松规划英国伦敦之旅。">
+    <meta name="keywords" content="你好伦敦, 伦敦旅游, 伦敦攻略, 英国旅游, 伦敦交通">
+    <title>你好伦敦 - 伦敦旅行指南与深度攻略</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #003580; /* 伦敦蓝 */
+            --secondary-color: #d4af37; /* 皇室金 */
+            --bg-color: #f4f4f4;
+            --text-color: #333;
+            --text-light: #666;
+            --white: #ffffff;
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .search-btn {
+            background: none;
+            border: 1px solid #ddd;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: var(--transition);
+        }
+
+        .search-btn:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(rgba(0, 53, 128, 0.6), rgba(0, 53, 128, 0.4)), url('https://picsum.photos/seed/london/1600/900') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: var(--transition);
+        }
+
+        .cta-button:hover {
+            background-color: #bfa030;
+            transform: translateY(-2px);
+        }
+
+        /* 分类导航 */
+        .category-nav {
+            background: var(--white);
+            padding: 20px 0;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .category-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .category-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .category-item:hover, .category-item.active {
+            color: var(--primary-color);
+        }
+
+        .category-icon {
+            width: 24px;
+            height: 24px;
+            background-color: #f0f0f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        /* 主要内容区 */
+        .main-content {
+            padding: 40px 0;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        .section-header h2 {
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+
+        .view-all {
+            font-size: 14px;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .view-all:hover {
+            color: var(--primary-color);
+        }
+
+        /* 热门景点卡片 */
+        .spot-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .spot-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .spot-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .card-desc {
+            font-size: 14px;
+            color: var(--text-light);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-tag {
+            display: inline-block;
+            background-color: #eef2f7;
+            color: var(--primary-color);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        /* 侧边栏 */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sidebar-widget {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .widget-title {
+            font-size: 18px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+            color: var(--text-color);
+        }
+
+        .tips-list li {
+            margin-bottom: 15px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .tips-list .tip-icon {
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .tips-list a {
+            color: var(--text-color);
+            font-size: 14px;
+        }
+
+        .tips-list a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        /* 交通指南 */
+        .transport-section {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: var(--card-shadow);
+            margin-top: 40px;
+        }
+
+        .transport-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .transport-item h3 {
+            margin: 15px 0 10px;
+            color: var(--primary-color);
+        }
+
+        .transport-item p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* 常见问题 */
+        .faq-section {
+            background-color: #f9f9f9;
+            padding: 40px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+
+        .faq-item {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 15px;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 8px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-question:hover {
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            font-size: 14px;
+            color: var(--text-light);
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 14px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* 简化处理，移动端隐藏菜单 */
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .transport-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 头部导航 -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                你好<span>伦敦</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#attractions">景点攻略</a>
+                <a href="#transport">交通指南</a>
+                <a href="#food">美食推荐</a>
+                <a href="#faq">常见问题</a>
+            </nav>
+            <button class="search-btn">🔍 搜索</button>
+        </div>
+    </header>
+
+    <!-- 首屏 Banner -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>你好，伦敦</h1>
+            <p>探索大英帝国的心脏，感受历史与现代的完美交融。从白金汉宫的庄严到泰晤士河的柔情，开启您的英伦之旅。</p>
+            <a href="#attractions" class="cta-button">开始探索</a>
+        </div>
+    </section>
+
+    <!-- 分类导航 -->
+    <div class="container">
+        <div class="category-nav">
+            <ul class="category-list">
+                <li class="category-item active"><span class="category-icon">🏠</span> 综合攻略</li>
+                <li class="category-item"><span class="category-icon">🏰</span> 经典景点</li>
+                <li class="category-item"><span class="category-icon">🚇</span> 交通出行</li>
+                <li class="category-item"><span class="category-icon">🏨</span> 住宿体验</li>
+                <li class="category-item"><span class="category-icon">🍽️</span> 美食探店</li>
+                <li class="category-item"><span class="category-icon">🎒</span> 实用贴士</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 主要内容区 -->
+    <div class="container main-content">
+        <!-- 左侧主要内容 -->
+        <main>
+            <!-- 热门景点 -->
+            <section id="attractions">
+                <div class="section-header">
+                    <h2>热门必游景点</h2>
+                    <a href="#" class="view-all">查看全部 &rarr;</a>
+                </div>
+                <div class="spot-grid">
+                    <article class="spot-card">
+                        <img src="https://picsum.photos/seed/bigben/400/300" alt="大本钟" class="card-img">
+                        <div class="card-body">
+                            <span class="card-tag">地标建筑</span>
+                            <h3 class="card-title">大本钟与议会大厦</h3>
+                            <p class="card-desc">伦敦的象征，哥特式建筑的杰作。建议提前预约登顶，俯瞰伦敦全景。</p>
+                        </div>
+                    </article>
+                    <article class="spot-card">
+                        <img src="https://picsum.photos/seed/towerbridge/400/300" alt="伦敦塔桥" class="card-img">
+                        <div class="card-body">
+                            <span class="card-tag">历史遗迹</span>
+                            <h3 class="card-title">伦敦塔桥</h3>
+                            <p class="card-desc">维多利亚时代的工程奇迹，体验玻璃栈道，近距离感受钢铁的张力。</p>
+                        </div>
+                    </article>
+                    <article class="spot-card">
+                        <img src="https://picsum.photos/seed/buckingham/400/300" alt="白金汉宫" class="card-img">
+                        <div class="card-body">
+                            <span class="card-tag">皇家风范</span>
+                            <h3 class="card-title">白金汉宫</h3>
+                            <p class="card-desc">英国君主正式官邸。夏季期间可参观国室，观看换岗仪式。</p>
+                        </div>
+                    </article>
+                    <article class="spot-card">
+                        <img src="https://picsum.photos/seed/river/400/300" alt="泰晤士河游船" class="card-img">
+                        <div class="card-body">
+                            <span class="card-tag">休闲体验</span>
+                            <h3 class="card-title">泰晤士河游船</h3>
+                            <p class="card-desc">从水上欣赏伦敦眼、碎片大厦等著名地标，轻松又浪漫。</p>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- 交通指南 -->
+            <section id="transport">
+                <div class="section-header">
+                    <h2>交通出行指南</h2>
+                </div>
+                <div class="transport-section">
+                    <div class="transport-grid">
+                        <div class="transport-item">
+                            <div style="font-size: 32px;">🚇</div>
+                            <h3>地铁</h3>
+                            <p>最便捷的方式，覆盖全城。建议购买牡蛎卡或Contactless卡。</p>
+                        </div>
+                        <div class="transport-item">
+                            <div style="font-size: 32px;">🚌</div>
+                            <h3>巴士</h3>
+                            <p>适合观光，双层巴士可欣赏沿途风景。部分线路24小时运营。</p>
+                        </div>
+                        <div class="transport-item">
+                            <div style="font-size: 32px;">🚲</div>
+                            <h3>共享单车</h3>
+                            <p>伦敦公交，沿途风景优美。需注意限速和专用车道。</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 实用贴士 -->
+            <section>
+                <div class="section-header">
+                    <h2>旅行实用贴士</h2>
+                </div>
+                <div class="transport-section" style="margin-top: 0;">
+                    <ul class="tips-list">
+                        <li>
+                            <span class="tip-icon">1.</span>
+                            <div>
+                                <strong>网络与通讯：</strong> 到达后建议购买当地SIM卡或开通国际漫游，方便使用Google Maps导航。
+                            </div>
+                        </li>
+                        <li>
+                            <span class="tip-icon">2.</span>
+                            <div>
+                                <strong>支付方式：</strong> 伦敦已全面接受非接触式支付，大部分商店支持信用卡和手机支付。
+                            </div>
+                        </li>
+                        <li>
+                            <span class="tip-icon">3.</span>
+                            <div>
+                                <strong>穿衣建议：</strong> 英国天气多变，建议随身携带雨具和一件薄外套。
+                            </div>
+                        </li>
+                        <li>
+                            <span class="tip-icon">4.</span>
+                            <div>
+                                <strong>排队礼仪：</strong> 在热门景点排队时请保持安静，不要插队。
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <!-- 右侧侧边栏 -->
+        <aside>
+            <div class="sidebar-widget">
+                <h3 class="widget-title">📅 最佳旅行时间</h3>
+                <p style="font-size: 14px; color: #666; margin-bottom: 15px;">
+                    5月-9月是最佳旅游季节，气候温和，日照时间长。
+                </p>
+                <div style="height: 150px; background: #eee; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #999;">
+                    [季节气温图表占位]
+                </div>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">✈️ 机票预订</h3>
+                <ul class="tips-list">
+                    <li><a href="#">👉 希思罗机场交通攻略</a></li>
+                    <li><a href="#">👉 从机场到市区路线</a></li>
+                    <li><a href="#">👉 机场免税店购物指南</a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">📖 旅行预算</h3>
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <div style="display: flex; justify-content: space-between; font-size: 14px;">
+                        <span>经济型 (每晚)</span>
+                        <span>£80 - £120</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 14px;">
+                        <span>舒适型 (每晚)</span>
+                        <span>£150 - £300</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 14px;">
+                        <span>豪华型 (每晚)</span>
+                        <span>£400+</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- 常见问题 FAQ -->
+    <div class="container">
+        <section id="faq" class="faq-section">
+            <div class="section-header" style="border-left-color: var(--secondary-color);">
+                <h2>常见问题解答</h2>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">在英国需要提前准备现金吗？ <span>+</span></div>
+                <div class="faq-answer">虽然信用卡普及率很高，但在一些老式酒吧、市场或小商店，现金仍然被接受。建议随身携带少量英镑现金以备不时之需。</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">去伦敦旅游需要多少天？ <span>+</span></div>
+                <div class="faq-answer">如果时间有限，3-4天可以游览核心景点；如果希望深度体验，建议安排7天以上，以便前往周边城市或享受悠闲的下午茶时光。</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">如何购买伦敦眼门票？ <span>+</span></div>
+                <div class="faq-answer">强烈建议提前在官方网站或授权代理商处预订，通常比现场购买有折扣，且可避开长时间排队。</div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="color: #fff; margin-bottom: 15px; display: inline-block;">
+                        你好<span>伦敦</span>
+                    </a>
+                    <p style="font-size: 14px; line-height: 1.8; color: #999;">
+                        你好伦敦致力于为每一位前往英国旅行的朋友提供最详尽的攻略、最实用的建议和最温暖的指引。让您的伦敦之旅不再迷茫。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">网站介绍</a></li>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">合作伙伴</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>旅行指南</h4>
+                    <ul>
+                        <li><a href="#">景点门票</a></li>
+                        <li><a href="#">酒店预订</a></li>
+                        <li><a href="#">当地美食</a></li>
+                        <li><a href="#">旅游保险</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">微博</a></li>
+                        <li><a href="#">小红书</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 你好伦敦. All Rights Reserved. 本网站内容仅供参考，具体信息请以官方发布为准。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的 FAQ 交互逻辑
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+                
+                // 切换图标
+                const span = item.querySelector('span');
+                span.textContent = parent.classList.contains('active') ? '-' : '+';
+            });
+        });
+
+        // 分类导航点击效果
+        document.querySelectorAll('.category-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.category-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // 搜索按钮模拟
+        document.querySelector('.search-btn').addEventListener('click', () => {
+            alert('搜索功能：请输入您想了解的伦敦景点或信息。');
+        });
+    </script>
+</body>
+  </html>
