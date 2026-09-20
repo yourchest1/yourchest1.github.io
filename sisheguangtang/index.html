@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="私摄光堂官方首页。提供专业的私房摄影、人像写真、光影艺术创作与摄影教学服务，探索光影与人体美的完美结合。">
+    <meta name="keywords" content="私摄光堂,私房摄影,人像写真,光影艺术,摄影教学">
+    <title>私摄光堂-专业私房摄影与光影艺术创作空间</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --bg-color: #1a1a1a;
+            --card-bg: #252525;
+            --text-main: #f0f0f0;
+            --text-muted: #a0a0a0;
+            --accent: #d4af37;
+            --accent-hover: #b5952f;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 32px;
+            --spacing-xl: 64px;
+            --container-width: 1200px;
+            --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: var(--spacing-lg);
+            position: relative;
+            padding-bottom: var(--spacing-sm);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            background-color: var(--accent);
+            color: #000;
+            font-weight: 600;
+            border-radius: 4px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text-main);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* 使用纯色模拟高质量摄影氛围，实际项目中应替换为高质量图片 */
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('https://picsum.photos/seed/darkmoody/1920/1080') no-repeat center center/cover;
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: var(--spacing-lg);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: var(--spacing-md);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        /* Services Section */
+        .services {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .service-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .service-img {
+            height: 200px;
+            width: 100%;
+        }
+
+        .service-info {
+            padding: var(--spacing-lg);
+        }
+
+        .service-info h3 {
+            margin-bottom: var(--spacing-sm);
+            color: var(--accent);
+        }
+
+        .service-info p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: var(--spacing-xl) 0;
+            background-color: #161616;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+        }
+
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: var(--spacing-md);
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-title {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        /* About Section */
+        .about {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .about-text p {
+            color: var(--text-muted);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .about-stats {
+            display: flex;
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-lg);
+        }
+
+        .stat-item h4 {
+            font-size: 2rem;
+            color: var(--accent);
+        }
+
+        .stat-item span {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: var(--spacing-xl) 0;
+            background-color: #161616;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: var(--spacing-md) 0;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .faq-answer {
+            margin-top: var(--spacing-sm);
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            display: none; /* JS will toggle */
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-item.active .faq-question::before {
+            content: '+';
+        }
+
+        /* Footer */
+        footer {
+            padding: var(--spacing-xl) 0 var(--spacing-lg);
+            background-color: #0f0f0f;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .footer-col h4 {
+            margin-bottom: var(--spacing-md);
+            color: var(--text-main);
+        }
+
+        .footer-col ul li {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-col ul li a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #555;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--bg-color);
+                flex-direction: column;
+                padding: var(--spacing-lg);
+                text-align: center;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-stats {
+                justify-content: center;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">私摄光堂</a>
+            <button class="mobile-menu-btn" aria-label="菜单">☰</button>
+            <nav class="nav-links">
+                <a href="#home">首页</a>
+                <a href="#services">服务项目</a>
+                <a href="#gallery">作品展示</a>
+                <a href="#about">关于我们</a>
+                <a href="#faq">常见问题</a>
+                <a href="#contact" class="btn" style="padding: 6px 16px; font-size: 0.9rem;">预约拍摄</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-bg"></div>
+            <div class="hero-content">
+                <h1>光影之间，定格真实</h1>
+                <p>私摄光堂专注于探索光影与人体美的艺术结合，为您提供私密、专业、极具审美价值的影像记录。</p>
+                <a href="#services" class="btn">探索作品</a>
+                <a href="#contact" class="btn" style="background-color: transparent; border: 1px solid var(--accent); color: var(--accent); margin-left: 10px;">联系我们</a>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="container">
+                <h2 class="section-title">核心服务</h2>
+                <div class="services-grid">
+                    <article class="service-card">
+                        <img src="https://picsum.photos/seed/softlight/600/400" alt="私房写真" class="service-img">
+                        <div class="service-info">
+                            <h3>私密私房写真</h3>
+                            <p>在安全、舒适的环境中，通过自然光与光影的交织，捕捉您最自然、最放松的状态。拒绝摆拍，还原生活本真。</p>
+                            <a href="#" style="color: var(--accent); font-weight: 600;">了解更多 &rarr;</a>
+                        </div>
+                    </article>
+                    <article class="service-card">
+                        <img src="https://picsum.photos/seed/artistic/600/400" alt="艺术创作" class="service-img">
+                        <div class="service-info">
+                            <h3>光影艺术创作</h3>
+                            <p>将摄影视为绘画，运用光影塑造轮廓与情绪。适合寻求独特艺术风格、追求视觉冲击力的个人或团体。</p>
+                            <a href="#" style="color: var(--accent); font-weight: 600;">了解更多 &rarr;</a>
+                        </div>
+                    </article>
+                    <article class="service-card">
+                        <img src="https://picsum.photos/seed/fashion/600/400" alt="形象管理" class="service-img">
+                        <div class="service-info">
+                            <h3>形象摄影与修图</h3>
+                            <p>提供从妆造建议到拍摄指导，再到专业后期精修的一站式服务，帮助您打造完美的个人形象照或宣传素材。</p>
+                            <a href="#" style="color: var(--accent); font-weight: 600;">了解更多 &rarr;</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="gallery">
+            <div class="container">
+                <h2 class="section-title">精选作品</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/photography1/400/600" alt="作品展示 1">
+                        <div class="gallery-overlay">
+                            <span class="gallery-title">午后微光</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/photography2/400/600" alt="作品展示 2">
+                        <div class="gallery-overlay">
+                            <span class="gallery-title">静谧时刻</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/photography3/400/600" alt="作品展示 3">
+                        <div class="gallery-overlay">
+                            <span class="gallery-title">光影交错</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/photography4/400/600" alt="作品展示 4">
+                        <div class="gallery-overlay">
+                            <span class="gallery-title">自然流露</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/photography5/400/600" alt="作品展示 5">
+                        <div class="gallery-overlay">
+                            <span class="gallery-title">黑白韵律</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/photography6/400/600" alt="作品展示 6">
+                        <div class="gallery-overlay">
+                            <span class="gallery-title">都市剪影</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/photography7/400/600" alt="作品展示 7">
+                        <div class="gallery-overlay">
+                            <span class="gallery-title">室内叙事</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/photography8/400/600" alt="作品展示 8">
+                        <div class="gallery-overlay">
+                            <span class="gallery-title">情感捕捉</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="https://picsum.photos/seed/studio/600/400" alt="工作室环境" style="border-radius: 8px; box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
+                    </div>
+                    <div class="about-text">
+                        <h2>关于私摄光堂</h2>
+                        <p>“私摄光堂”不仅仅是一个摄影工作室的名字，更是一种对光影艺术的执着追求。我们相信，每一束光线都有其独特的语言，每一位拍摄对象都拥有独特的魅力。</p>
+                        <p>我们的团队由资深摄影师和视觉设计师组成，致力于打破传统影楼的流水线模式，为客户提供高度定制化的拍摄体验。无论是室内的私密空间，还是户外的自然光影，我们都力求在安全与艺术之间找到完美的平衡点。</p>
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <h4>500+</h4>
+                                <span>满意客户</span>
+                            </div>
+                            <div class="stat-item">
+                                <h4>100%</h4>
+                                <span>原创作品</span>
+                            </div>
+                            <div class="stat-item">
+                                <h4>5年</h4>
+                                <span>行业经验</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq">
+            <div class="container">
+                <h2 class="section-title">常见问题</h2>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">拍摄风格是怎样的？</div>
+                        <div class="faq-answer">
+                            我们的主打风格是自然、清新且带有艺术感的私房与光影摄影。强调模特的自然表情与肢体语言，避免过度摆拍，通过光影的明暗对比来塑造氛围。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">拍摄地点在哪里？</div>
+                        <div class="faq-answer">
+                            我们拥有专属的私密影棚，同时也提供上门拍摄服务（需根据具体档期和距离评估）。影棚内配备了专业的灯光设备和符合审美的高级道具。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">拍摄前需要准备什么？</div>
+                        <div class="faq-answer">
+                            您无需具备专业的模特经验。我们会提供详细的拍摄沟通建议，包括服装搭配、妆造参考以及拍摄当天的注意事项。请保持轻松的心态即可。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">如何获取样片或价格详情？</div>
+                        <div class="faq-answer">
+                            请通过页面下方的“预约拍摄”按钮联系我们，或直接发送邮件至官方邮箱。我们会根据您的需求提供详细的作品集和报价单。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="display:block; margin-bottom: 15px;">私摄光堂</a>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">
+                        专注于光影艺术的探索与记录，用镜头捕捉生活中的真实与美好。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#home">首页</a></li>
+                        <li><a href="#services">服务项目</a></li>
+                        <li><a href="#gallery">作品集</a></li>
+                        <li><a href="#faq">帮助中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li><a href="mailto:contact@sigeshelight.com">contact@sigeshelight.com</a></li>
+                        <li><a href="#">微信：sigeshelight</a></li>
+                        <li><a href="#">工作时间：10:00 - 20:00</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 私摄光堂. All Rights Reserved. 本站内容仅供艺术交流参考，请遵守相关法律法规。
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        const mobileBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // FAQ 折叠逻辑
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            item.querySelector('.faq-question').addEventListener('click', () => {
+                // 关闭其他打开的项
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                // 切换当前项状态
+                item.classList.toggle('active');
+            });
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                navLinks.classList.remove('active'); // 点击链接后关闭移动端菜单
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+  </html>
